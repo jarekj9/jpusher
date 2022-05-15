@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141236549981",
+    "project_id": "jpusher-3a2d8",
+    "storage_bucket": "jpusher-3a2d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141236549981:android:d58d474a24edd5458c90b4",
+        "android_client_info": {
+          "package_name": "com.example.jpusher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141236549981-rplf3eqh60jlk0bm1pdkog01t3ul7e1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFqomgyN2JwFhmohujz9TYj6pP5jCrKRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141236549981-rplf3eqh60jlk0bm1pdkog01t3ul7e1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
