@@ -1,17 +1,23 @@
 package com.example.jpusher
 
-import android.content.ContentValues
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.*
 import android.os.Bundle
-
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val activityReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            val bundle = intent.getBundleExtra("msg")
+            msgTextView.setText("Message: ${bundle!!.getString("msgBody")}")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         var tokenTask = getToken()
             .addOnSuccessListener(){
                 tokenTextView.setText("$it")
+                Log.d(ContentValues.TAG, "$it")
             }
             .addOnFailureListener(){
                 tokenTextView.setText("Failed to get token.")
@@ -35,8 +42,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent.createChooser(shareIntent,"Share via"))
         }
 
-    }
+        if (activityReceiver != null) {
+            val intentFilter = IntentFilter("ACTION_STRING_ACTIVITY")
+            registerReceiver(activityReceiver, intentFilter)
+        }
 
+    }
 
     private fun getToken(): Task<String> {
         var token = FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->

@@ -55,4 +55,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tokenTextView" />
 
+    <TextView
+        android:id="@+id/msgTextView"
+        android:layout_width="262dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="75dp"
+        android:text="Message:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tokenTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
